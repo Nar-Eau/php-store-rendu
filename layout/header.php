@@ -16,6 +16,7 @@
                 <li><a href="/categories.php">Catégories</a></li>
                 <li><a href="/add-category.php">Nouvelle catégorie</a></li>
                 <li><a href="/add-product.php">Nouveau produit</a></li>
+                <li><a href="/login.php">Compte</a></li>
             </ul>
         </nav>
         <?php

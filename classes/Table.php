@@ -32,4 +32,8 @@ abstract class Table
 
         return $result;
     }
+
+    public function add($type, $values) {
+        
+    }
 }
