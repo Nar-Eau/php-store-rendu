@@ -14,13 +14,16 @@
             <ul>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="/categories.php">Catégories</a></li>
-                <li><a href="/add-category.php">Nouvelle catégorie</a></li>
-                <li><a href="/add-product.php">Nouveau produit</a></li>
+                <?php 
+                    session_start();
+                    if($_SESSION['superUser'] == true) { ?>
+                    <li><a href="/add-category.php">Nouvelle catégorie</a></li>
+                    <li><a href="/add-product.php">Nouveau produit</a></li>
+                <?php } ?>
                 <li><a href="/login.php">Compte</a></li>
             </ul>
         </nav>
         <?php
-        session_start();
         if (isset($_SESSION['message']) && !empty($_SESSION['message'])) {
         ?>
         <div class="notification">

@@ -26,7 +26,7 @@ require_once __DIR__ . '/functions/error.php';
         <form action="">
             <button type="submit" formaction="disconnect-process.php">Se Déconnecter</button>
         </form>
-    <?php }
+    <?php } 
     else { ?>
 
         <h1>Connectez-vous / Creer un compte</h1>

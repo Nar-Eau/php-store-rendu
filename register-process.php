@@ -17,7 +17,6 @@ foreach ($alluser as $index => $value) {
         $loginExists = true;
 }
 
-
 if (empty($login)) {
     redirect('/login.php?error=' . UserError::LOGIN_REQUIRED);
 }
@@ -47,14 +46,6 @@ if ($stmt === false) {
 }
 
 session_start();
-
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['account_login'] = $login;
-    $_SESSION['account_password'] = $password;
-    $_SESSION['account_status'] = true;
- }
-
-
-$_SESSION['message'] = "votre compte à bien été crée";
+$_SESSION['message'] = "Votre compte a bien été crée ";
 
 redirect('/');
