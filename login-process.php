@@ -28,8 +28,13 @@ if ($accessDenied) {
 }
 
 session_start();
-$_SESSION['account_login'] = $login;
-$_SESSION['account_password'] = $password;
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['account_login'] = $login;
+    $_SESSION['account_password'] = $password;
+    $_SESSION['account_status'] = true;
+ }
+
 $_SESSION['message'] = "vous êtes connecté en tant que $login";
 
-redirect('/');
+redirect('/login.php');
