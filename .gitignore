@@ -1,4 +1,2 @@
-// Configuration de base de données
+// Configuration de base de données et de compte super utilisateur
 config/*.ini
-
-//Configuration de compte client
