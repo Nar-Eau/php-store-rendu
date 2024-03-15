@@ -30,7 +30,10 @@ if(isset($_GET['id']) && $_GET['id'] != "") {
             <?php echo $product['price_vat_free']; ?> <br>
             <?php  echo $product['description']; ?> <br>   
 
-            <button ></button>
+            <form action="cart-process.php" method="post">
+                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                <button type="submit">Ajouter au panier</button>
+            </form>
         </div>
 
     </div>

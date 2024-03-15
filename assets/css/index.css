@@ -34,6 +34,10 @@
 img {
   width: 100%;
   height: auto;
+
+  &.cart {
+    width: 30px;
+  }
 }
 
 ul {

@@ -16,9 +16,9 @@
                 <li><a href="/categories.php">Catégories</a></li>
                 <?php 
                     session_start();
-                    if($_SESSION['superUser'] == true) { ?>
-                    <li><a href="/add-category.php">Nouvelle catégorie</a></li>
-                    <li><a href="/add-product.php">Nouveau produit</a></li>
+                    if(isset($_SESSION['superUser']) && $_SESSION['superUser'] == true) { ?>
+                        <li><a href="/add-category.php">Nouvelle catégorie</a></li>
+                        <li><a href="/add-product.php">Nouveau produit</a></li>
                 <?php } ?>
                 <li><a href="/login.php">Compte</a></li>
             </ul>

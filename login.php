@@ -14,7 +14,7 @@ require_once __DIR__ . '/functions/error.php';
         </p>
     <?php } ?>
 
-    <?php if ($_SESSION['account_status'] == true) {?>
+    <?php if (isset($_SESSION['account_status']) && $_SESSION['account_status'] == true) {?>
         
         <h1>Mon Compte</h1>
 
@@ -27,9 +27,9 @@ require_once __DIR__ . '/functions/error.php';
             <button type="submit" formaction="disconnect-process.php">Se Déconnecter</button>
         </form>
 
-        <form action="">
-            <button type="submit" formaction="cart.php">Se Déconnecter</button>
-        </form>
+        <a href="/cart.php">
+            <img class="cart" src="/assets/img/cart.jpeg" alt="panier">
+        </a>
     <?php } 
     else { ?>
 

@@ -20,18 +20,20 @@ $user = new Users();
 $alluser = $user->findAll();
 
 foreach ($alluser as $index => $value) {
-    if ($value['login'] === $login && $value['password'] === $password) {
-        $accessDenied = false;
-        $_SESSION['account_login'] = $login;
-        $_SESSION['account_password'] = $password;
-        $_SESSION['account_status'] = true;
-        $_SESSION['message'] = "vous êtes connecté en tant que $login";
-
-        if ($value['login'] === $adminLogin && $value['password'] === $adminPassword) {
-            $_SESSION['superUser'] = true;
-            $_SESSION['message'] = "Super User Mode activé";
-        } else {
-            $_SESSION['superUser'] = false;
+    if ($value['login'] === $login) {
+        if (password_verify($password, $value['password'])) {
+            $accessDenied = false;
+            $_SESSION['account_login'] = $login;
+            $_SESSION['account_password'] = $password;
+            $_SESSION['account_status'] = true;
+            $_SESSION['message'] = "vous êtes connecté en tant que $login";
+    
+            if ($value['login'] === $adminLogin && $value['password'] === $adminPassword) {
+                $_SESSION['superUser'] = true;
+                $_SESSION['message'] = "Super User Mode activé";
+            } else {
+                $_SESSION['superUser'] = false;
+            }
         }
     }
 }

@@ -34,6 +34,10 @@ try {
     exit;
 }
 
+//hash password
+
+$password = password_hash($password, PASSWORD_DEFAULT);
+
 $stmt = $pdo->prepare("INSERT INTO users (login, password) VALUES (:login, :password)");
 $stmt->execute([
     'login' => $login,
@@ -47,5 +51,13 @@ if ($stmt === false) {
 
 session_start();
 $_SESSION['message'] = "Votre compte a bien été crée ";
+
+$users = $user->findAll();
+
+foreach($users as $user) {
+    if($user['login'] == $login && $user['password'] == $password) {
+        $_SESSION['cartUSER' . $user['id']] = [];
+    }
+}
 
 redirect('/');
