@@ -21,3 +21,25 @@
   padding: 1em;
   color: #fff;
 }
+
+.product-preview, .product-item {
+  width: 200px;
+  text-align: center;
+   
+  em {
+    font-size: 10px;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style-type:none
+}
+
+li {
+  margin: 0px 10px;
+}
