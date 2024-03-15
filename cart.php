@@ -16,7 +16,7 @@ $login = $_SESSION['account_login'];
 $password = $_SESSION['account_password'];
 
 foreach($users as $user) {
-    if($user['login'] == $login && $user['password'] == $password) {
+    if($user['login'] == $login && password_verify($password, $user['password'])) {
         $panier = &$_SESSION['cartUSER' . $user['id']];
     }
 }
@@ -24,17 +24,17 @@ foreach($users as $user) {
 $product = new Products();
 $products = $product->findAll();
 
-foreach($panier as $articleID) { 
-    $article = $product->find($articleID); ?>
-
-    <div class="product-preview">
-        <img src="<?php echo $article['cover']?>" alt="<?php echo $article['name']?>">
-        <div class="product-info">
-            <?php echo $article['price_vat_free']; ?> <br>
-            <?php  echo $article['description']; ?> <br>   
+if(isset($panier)) {
+    foreach($panier as $articleID) { 
+        $article = $product->find($articleID); ?>
+    
+        <div class="product-preview">
+            <img src="<?php echo $article['cover']?>" alt="<?php echo $article['name']?>">
+            <div class="product-info">
+                <?php echo $article['price_vat_free']; ?> <br>
+                <?php  echo $article['description']; ?> <br>   
+            </div>
+    
         </div>
-
-    </div>
-
-
-<?php }
+<?php  }
+}

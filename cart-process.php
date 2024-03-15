@@ -14,7 +14,7 @@ if (isset($_SESSION['account_status']) && $_SESSION['account_status'] == true) {
     $productAdded = trim($_POST['product_id']);
 
     foreach($users as $user) {
-        if($user['login'] == $login && $user['password'] == $password) {
+        if($user['login'] == $login && password_verify($password, $user['password'])) {
             $panier = &$_SESSION['cartUSER' . $user['id']];
             array_push($panier, $productAdded);
         }
