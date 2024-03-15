@@ -19,3 +19,10 @@ De la même manière, créez un fichier `admin.ini` dans le dossier `config`, y 
 ADMIN_LOGIN=ADMIN LOGIN
 ADMIN_PASSWORD=ADMIN PASSWORD
 ```
+
+
+Features terminées : 
+    - Authentification avec user Admin pour ajouter des produits / Catégories avec des variables SESSION
+    - Liste de produits dans les catégories et dans la page d'accueil
+    - Panier de produits dans le compte avec des variables SESSION
+
